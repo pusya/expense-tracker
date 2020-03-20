@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://rose:rose@expensetracker-bujcp.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "fountain"
+}
