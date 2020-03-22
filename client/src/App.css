@@ -3,9 +3,9 @@
 /* Global Styles */
 :root {
   --primary-color: #007745;
-  --dark-color: #333333;
+  --dark-color: #615e5e;
   --light-color: #f4f4f4;
-  --danger-color: #dc3545;
+  --danger-color: #ee7a85;
   --success-color: #28a745;
 }
 
@@ -92,11 +92,18 @@ img {
 
 /* Cards */
 .card {
-  padding: 1rem;
+  padding: 1rem 2rem;
+
   border: #ccc 1px dotted;
   margin: 0.7rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.button-wrapper {
+  display: flex;
+}
 /* List */
 .list {
   margin: 0.5rem 0;
@@ -162,7 +169,8 @@ img {
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 8rem;
+  margin-top: 2rem;
 }
 
 .grid-3 {
@@ -194,6 +202,7 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  width: 4.5rem;
 }
 
 .btn-link {
@@ -214,7 +223,7 @@ img {
 }
 
 .badge {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   padding: 0.2rem 0.7rem;
   text-align: center;
   margin: 0.3rem;
@@ -233,10 +242,13 @@ img {
 
 .btn-primary,
 .bg-primary,
-.badge-primary,
 .alert-primary {
   background: var(--primary-color);
   color: #fff;
+}
+
+.badge-primary {
+  background: #bad4ca;
 }
 
 .btn-light,
