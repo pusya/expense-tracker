@@ -56,7 +56,7 @@ router.post(
 
       const item = await newItem.save();
 
-      res.json(Item);
+      res.json(item);
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server Error");

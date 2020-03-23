@@ -3,6 +3,18 @@ import ItemContext from "../../context/item/itemContext";
 
 const ItemForm = () => {
   const itemContext = useContext(ItemContext);
+  const { addItem, updateItem, clearCurrent, current } = itemContext;
+
+  useEffect(() => {
+    if (current !== null) {
+      setItem(current);
+    } else {
+      setItem({
+        text: "",
+        amount: ""
+      });
+    }
+  }, [itemContext, current]);
 
   const [item, setItem] = useState({
     text: "",
@@ -13,9 +25,23 @@ const ItemForm = () => {
 
   const onChange = e => setItem({ ...item, [e.target.name]: e.target.value });
 
+  const onSubmit = e => {
+    e.preventDefault();
+    if (current === null) {
+      addItem(item);
+    } else {
+      updateItem(item);
+    }
+    clearAll();
+  };
+
+  const clearAll = () => {
+    clearCurrent();
+  };
+
   return (
-    <form>
-      <h2 class="text-primary">Add Item</h2>
+    <form onSubmit={onSubmit}>
+      <h2 className="text-primary"> {current ? "Edit Item" : "Add Item"}</h2>
       <input
         type="text"
         placeholder="Text"
@@ -24,7 +50,7 @@ const ItemForm = () => {
         onChange={onChange}
       />
       <input
-        type="text"
+        type="number"
         placeholder="Amount"
         name="amount"
         value={amount}
@@ -33,10 +59,17 @@ const ItemForm = () => {
       <div>
         <input
           type="submit"
-          value="Add"
+          value={current ? "Update Item" : "Add Item"}
           className="btn btn-primary btn-block"
-        ></input>
+        />
       </div>
+      {current && (
+        <div>
+          <button className="btn btn-light btn-block" onClick={clearAll}>
+            Clear
+          </button>
+        </div>
+      )}
     </form>
   );
 };
