@@ -8,7 +8,8 @@ import {
   FILTER_ITEMS,
   CLEAR_FILTER,
   ITEM_ERROR,
-  CLEAR_ITEMS
+  CLEAR_ITEMS,
+  GET_TOTAL
 } from "../types";
 
 export default (state, action) => {
@@ -75,6 +76,11 @@ export default (state, action) => {
       return {
         ...state,
         error: action.payload
+      };
+    case GET_TOTAL:
+      return {
+        ...state,
+        total: action.payload
       };
     default:
       return state;

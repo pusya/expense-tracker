@@ -172,7 +172,7 @@ img {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 8rem;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 }
 
 .grid-3 {
@@ -353,6 +353,7 @@ button {
 }
 
 .form-container h1,
+h1,
 h2,
 h3 {
   text-align: center;

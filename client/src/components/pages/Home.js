@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import Items from "../items/Items";
 import ItemForm from "../items/ItemForm";
 import ItemFilter from "../items/ItemFilter";
+import Total from "../items/Total";
 import AuthContext from "../../context/auth/authContext";
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
         <ItemForm />
       </div>
       <div>
+        <Total />
         <ItemFilter />
         <Items />
       </div>

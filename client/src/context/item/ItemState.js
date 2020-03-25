@@ -13,7 +13,8 @@ import {
   FILTER_ITEMS,
   CLEAR_ITEMS,
   CLEAR_FILTER,
-  ITEM_ERROR
+  ITEM_ERROR,
+  GET_TOTAL
 } from "../types";
 
 const ItemState = props => {
@@ -21,7 +22,8 @@ const ItemState = props => {
     current: null,
     filtered: null,
     items: null,
-    error: null
+    error: null,
+    total: 0
   };
 
   const [state, dispatch] = useReducer(itemReducer, initialState);
@@ -130,6 +132,11 @@ const ItemState = props => {
     dispatch({ type: CLEAR_FILTER });
   };
 
+  // Get Total
+  const getTotal = total => {
+    dispatch({ type: GET_TOTAL, payload: total });
+  };
+
   return (
     <ItemContext.Provider
       value={{
@@ -137,6 +144,7 @@ const ItemState = props => {
         current: state.current,
         filtered: state.filtered,
         error: state.error,
+        total: state.total,
         addItem,
         deleteItem,
         setCurrent,
@@ -145,7 +153,8 @@ const ItemState = props => {
         filterItems,
         clearFilter,
         getItems,
-        clearItems
+        clearItems,
+        getTotal
       }}
     >
       {props.children}
