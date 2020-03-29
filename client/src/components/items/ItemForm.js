@@ -51,6 +51,7 @@ const ItemForm = () => {
       />
       <input
         type="number"
+        step="0.01"
         placeholder="Amount"
         name="amount"
         value={amount}

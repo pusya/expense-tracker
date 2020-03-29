@@ -64,7 +64,7 @@ export default (state, action) => {
         ...state,
         filtered: state.items.filter(item => {
           const regex = new RegExp(`${action.payload}`, "gi");
-          return item.text.match(regex) || item.amount.match(regex);
+          return item.text.match(regex) || item.amount.toString().match(regex);
         })
       };
     case CLEAR_FILTER:

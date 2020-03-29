@@ -28,6 +28,7 @@ const ItemFilter = () => {
         type="text"
         placeholder="Filter items..."
         onChange={onChange}
+        className="filterInput"
       />
     </form>
   );
